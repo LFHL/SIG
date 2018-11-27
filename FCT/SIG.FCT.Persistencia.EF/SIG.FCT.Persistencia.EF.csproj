@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SIG.FCT.CORE.Aplicacion\SIG.FCT.CORE.Aplicacion.csproj" />
+    <ProjectReference Include="..\SIG.FCT.CORE.Entidades\SIG.FCT.CORE.Entidades.csproj" />
+  </ItemGroup>
+
+</Project>
