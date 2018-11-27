@@ -29,12 +29,7 @@ namespace SIG.CORE.Persistencia.EF.Base
         public int Guardar()
         {
             return _contexto.SaveChanges();
-        }
-
-        public async Task<int> GuardarAsync( CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return await _contexto.SaveChangesAsync(cancellationToken);
-        }
+        }      
 
         private bool disposed = false;
 

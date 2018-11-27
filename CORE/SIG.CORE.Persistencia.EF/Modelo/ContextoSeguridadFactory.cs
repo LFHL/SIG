@@ -12,8 +12,6 @@ namespace SIG.CORE.Persistencia.EF.Modelo
         {
             var optionsBuilder = new DbContextOptionsBuilder<ContextoSeguridad>();
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SIG_SecurityDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;MultiSubnetFailover=False");
-            //optionsBuilder.UseSqlite("Data Source=blog.db");
-
             return new ContextoSeguridad(optionsBuilder.Options);
         }
     }

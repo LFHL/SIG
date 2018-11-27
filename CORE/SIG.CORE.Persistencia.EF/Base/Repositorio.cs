@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
+
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using SIG.CORE.Comun.Dominio.Contratos;
 
 namespace SIG.CORE.Persistencia.EF.Base
@@ -58,10 +56,6 @@ namespace SIG.CORE.Persistencia.EF.Base
         {
             return dbSet.Find(id);
         }
-        public virtual Task<TEntity> BuscarPorIdAsync( object id, CancellationToken cancellationToken = default(CancellationToken) )
-        {
-            return dbSet.FindAsync(id, cancellationToken);
-        }
 
         #endregion Select
 
@@ -71,12 +65,6 @@ namespace SIG.CORE.Persistencia.EF.Base
         {
             dbSet.Add(entity);
         }
-
-        public virtual void InsertarAsync( TEntity entity, CancellationToken cancellationToken = default(CancellationToken) )
-        {
-            dbSet.AddAsync(entity, cancellationToken);
-        }
-
 
         public virtual void InsertarRango( IEnumerable<TEntity> entities )
         {

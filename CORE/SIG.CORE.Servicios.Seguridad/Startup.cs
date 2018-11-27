@@ -27,7 +27,6 @@ namespace SIG.CORE.Servicios.Seguridad
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices( IServiceCollection services )
         {
-
             services.AddDbContext<ContextoSeguridad>(options => options
                 .UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
 
@@ -41,8 +40,6 @@ namespace SIG.CORE.Servicios.Seguridad
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(ConfigureJson);
-
-            //services.
 
             services.AddSwaggerGen(c =>
             {
