@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIG.FCT.CORE.Entidades.Fct;
+using SIG.FCT.CORE.Entidades.Gbl;
+using SIG.FCT.CORE.Entidades.Inv;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Par
 {
-    public partial class ParGenerales
+    public partial class Generales
     {
-        public ParGenerales()
+        public Generales()
         {
-            FctAsignacionesSistema = new HashSet<FctAsignacionesSistema>();
-            GblPropiedadesContacto = new HashSet<GblPropiedadesContacto>();
-            InvVentas = new HashSet<InvVentas>();
-            InverseIdTipoNavigation = new HashSet<ParGenerales>();
+            FctAsignacionesSistema = new HashSet<AsignacionesSistema>();
+            GblPropiedadesContacto = new HashSet<PropiedadesContacto>();
+            InvVentas = new HashSet<Ventas>();
+            InverseIdTipoNavigation = new HashSet<Generales>();
         }
 
         public int Id { get; set; }
@@ -21,10 +24,10 @@ namespace web.Modelos
         public int Orden { get; set; }
         public bool? Habilitado { get; set; }
 
-        public ParGenerales IdTipoNavigation { get; set; }
-        public ICollection<FctAsignacionesSistema> FctAsignacionesSistema { get; set; }
-        public ICollection<GblPropiedadesContacto> GblPropiedadesContacto { get; set; }
-        public ICollection<InvVentas> InvVentas { get; set; }
-        public ICollection<ParGenerales> InverseIdTipoNavigation { get; set; }
+        public Generales IdTipoNavigation { get; set; }
+        public ICollection<AsignacionesSistema> FctAsignacionesSistema { get; set; }
+        public ICollection<PropiedadesContacto> GblPropiedadesContacto { get; set; }
+        public ICollection<Ventas> InvVentas { get; set; }
+        public ICollection<Generales> InverseIdTipoNavigation { get; set; }
     }
 }

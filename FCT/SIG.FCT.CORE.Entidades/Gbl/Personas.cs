@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Gbl
 {
-    public partial class GblPersonas
+    public partial class Personas
     {
         public int Id { get; set; }
         public string NroDocumento { get; set; }
@@ -17,7 +17,7 @@ namespace web.Modelos
         public int? IdTelefonoPrincipal { get; set; }
         public int? IdCorreoPrincipal { get; set; }
 
-        public GblDirecciones IdDireccionNavigation { get; set; }
-        public GblPropiedadesContacto IdTelefonoPrincipalNavigation { get; set; }
+        public Direcciones IdDireccionNavigation { get; set; }
+        public PropiedadesContacto IdTelefonoPrincipalNavigation { get; set; }
     }
 }

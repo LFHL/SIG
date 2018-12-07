@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Inv
 {
-    public partial class InvDetalleCompras
+    public partial class DetalleCompras
     {
         public int Id { get; set; }
         public int IdCompra { get; set; }
@@ -12,7 +12,7 @@ namespace web.Modelos
         public decimal CostoUnidad { get; set; }
         public decimal? Total { get; set; }
 
-        public InvCompras IdCompraNavigation { get; set; }
-        public InvProductos IdProductoNavigation { get; set; }
+        public Compras IdCompraNavigation { get; set; }
+        public Productos IdProductoNavigation { get; set; }
     }
 }

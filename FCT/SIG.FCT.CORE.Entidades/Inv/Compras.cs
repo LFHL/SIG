@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Inv
 {
-    public partial class InvCompras
+    public partial class Compras
     {
-        public InvCompras()
+        public Compras()
         {
-            InvDetalleCompras = new HashSet<InvDetalleCompras>();
+            InvDetalleCompras = new HashSet<DetalleCompras>();
         }
 
         public int Id { get; set; }
@@ -17,6 +17,6 @@ namespace web.Modelos
         public string IdMoneda { get; set; }
         public double TipoCambio { get; set; }
 
-        public ICollection<InvDetalleCompras> InvDetalleCompras { get; set; }
+        public ICollection<DetalleCompras> InvDetalleCompras { get; set; }
     }
 }

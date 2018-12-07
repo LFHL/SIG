@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Fct
 {
-    public partial class FctDosificaciones
+    public partial class Dosificaciones
     {
-        public FctDosificaciones()
+        public Dosificaciones()
         {
-            FctFacturas = new HashSet<FctFacturas>();
+            FctFacturas = new HashSet<Facturas>();
         }
 
         public decimal NroAutorizacion { get; set; }
@@ -19,7 +19,7 @@ namespace web.Modelos
         public string NroTramite { get; set; }
         public string Llave { get; set; }
 
-        public FctAsignacionesSistema IdAsignacionNavigation { get; set; }
-        public ICollection<FctFacturas> FctFacturas { get; set; }
+        public AsignacionesSistema IdAsignacionNavigation { get; set; }
+        public ICollection<Facturas> FctFacturas { get; set; }
     }
 }

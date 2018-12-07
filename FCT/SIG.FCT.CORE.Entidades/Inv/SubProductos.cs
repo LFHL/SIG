@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Inv
 {
-    public partial class InvSubProductos
+    public partial class SubProductos
     {
         public int IdProducto { get; set; }
         public int IdSubProducto { get; set; }
 
-        public InvProductos IdProductoNavigation { get; set; }
-        public InvProductos IdSubProductoNavigation { get; set; }
+        public Productos IdProductoNavigation { get; set; }
+        public Productos IdSubProductoNavigation { get; set; }
     }
 }

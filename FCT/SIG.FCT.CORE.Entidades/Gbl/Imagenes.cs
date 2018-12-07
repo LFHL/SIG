@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIG.FCT.CORE.Entidades.Fct;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Gbl
 {
-    public partial class GblImagenes
+    public partial class Imagenes
     {
-        public GblImagenes()
+        public Imagenes()
         {
-            FctSucursales = new HashSet<FctSucursales>();
-            GblEmpresas = new HashSet<GblEmpresas>();
+            FctSucursales = new HashSet<Sucursales>();
+            GblEmpresas = new HashSet<Empresas>();
         }
 
         public int Id { get; set; }
@@ -16,7 +17,7 @@ namespace web.Modelos
         public string Nombre { get; set; }
         public byte[] Imagen { get; set; }
 
-        public ICollection<FctSucursales> FctSucursales { get; set; }
-        public ICollection<GblEmpresas> GblEmpresas { get; set; }
+        public ICollection<Sucursales> FctSucursales { get; set; }
+        public ICollection<Empresas> GblEmpresas { get; set; }
     }
 }

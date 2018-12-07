@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Gbl
 {
-    public partial class GblEmpresas
+    public partial class Empresas
     {
         public decimal Nit { get; set; }
         public int? IdTipoSociedad { get; set; }
@@ -14,9 +14,9 @@ namespace web.Modelos
         public int? IdDireccion { get; set; }
         public int? IdLogo { get; set; }
 
-        public GblDirecciones IdDireccionNavigation { get; set; }
-        public GblImagenes IdLogoNavigation { get; set; }
-        public GblPropiedadesContacto IdSitioWebNavigation { get; set; }
-        public GblPropiedadesContacto IdTelefonoPrincipalNavigation { get; set; }
+        public Direcciones IdDireccionNavigation { get; set; }
+        public Imagenes IdLogoNavigation { get; set; }
+        public PropiedadesContacto IdSitioWebNavigation { get; set; }
+        public PropiedadesContacto IdTelefonoPrincipalNavigation { get; set; }
     }
 }

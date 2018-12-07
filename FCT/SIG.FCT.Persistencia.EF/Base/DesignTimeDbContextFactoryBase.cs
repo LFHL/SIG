@@ -42,7 +42,7 @@ namespace SIG.FCT.Persistencia.EF.Base
             return Create(connstr);
         }
 
-        private TContext Create( string connectionString )
+        internal TContext Create( string connectionString )
         {
             if (string.IsNullOrEmpty(connectionString))
                 throw new ArgumentException(

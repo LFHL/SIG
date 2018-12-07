@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIG.FCT.CORE.Entidades.Fct;
+using SIG.FCT.CORE.Entidades.Par;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Inv
 {
-    public partial class InvVentas
+    public partial class Ventas
     {
-        public InvVentas()
+        public Ventas()
         {
-            InvDetalleVentas = new HashSet<InvDetalleVentas>();
+            InvDetalleVentas = new HashSet<DetalleVentas>();
         }
 
         public int Id { get; set; }
@@ -17,9 +19,9 @@ namespace web.Modelos
         public int IdMoneda { get; set; }
         public double TipoCambio { get; set; }
 
-        public InvClientes IdClienteNavigation { get; set; }
-        public ParGenerales IdMonedaNavigation { get; set; }
-        public FctFacturas FctFacturas { get; set; }
-        public ICollection<InvDetalleVentas> InvDetalleVentas { get; set; }
+        public Clientes IdClienteNavigation { get; set; }
+        public Generales IdMonedaNavigation { get; set; }
+        public Facturas FctFacturas { get; set; }
+        public ICollection<DetalleVentas> InvDetalleVentas { get; set; }
     }
 }

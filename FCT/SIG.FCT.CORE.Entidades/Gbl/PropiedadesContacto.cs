@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIG.FCT.CORE.Entidades.Par;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Gbl
 {
-    public partial class GblPropiedadesContacto
+    public partial class PropiedadesContacto
     {
-        public GblPropiedadesContacto()
+        public PropiedadesContacto()
         {
-            GblEmpresasIdSitioWebNavigation = new HashSet<GblEmpresas>();
-            GblEmpresasIdTelefonoPrincipalNavigation = new HashSet<GblEmpresas>();
-            GblPersonas = new HashSet<GblPersonas>();
+            EmpresasIdSitioWebNavigation = new HashSet<Empresas>();
+            EmpresasIdTelefonoPrincipalNavigation = new HashSet<Empresas>();
+            Personas = new HashSet<Personas>();
         }
 
         public int Id { get; set; }
         public int IdTipo { get; set; }
         public string Valor { get; set; }
 
-        public ParGenerales IdTipoNavigation { get; set; }
-        public ICollection<GblEmpresas> GblEmpresasIdSitioWebNavigation { get; set; }
-        public ICollection<GblEmpresas> GblEmpresasIdTelefonoPrincipalNavigation { get; set; }
-        public ICollection<GblPersonas> GblPersonas { get; set; }
+        public Generales IdTipoNavigation { get; set; }
+        public ICollection<Empresas> EmpresasIdSitioWebNavigation { get; set; }
+        public ICollection<Empresas> EmpresasIdTelefonoPrincipalNavigation { get; set; }
+        public ICollection<Personas> Personas { get; set; }
     }
 }

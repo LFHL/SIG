@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIG.FCT.CORE.Entidades.Fct;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Gbl
 {
-    public partial class GblDirecciones
+    public partial class Direcciones
     {
-        public GblDirecciones()
+        public Direcciones()
         {
-            FctSucursales = new HashSet<FctSucursales>();
-            GblEmpresas = new HashSet<GblEmpresas>();
-            GblPersonas = new HashSet<GblPersonas>();
+            FctSucursales = new HashSet<Sucursales>();
+            GblEmpresas = new HashSet<Empresas>();
+            GblPersonas = new HashSet<Personas>();
         }
 
         public int Id { get; set; }
@@ -21,8 +22,8 @@ namespace web.Modelos
         public int? PosX { get; set; }
         public int? PosY { get; set; }
 
-        public ICollection<FctSucursales> FctSucursales { get; set; }
-        public ICollection<GblEmpresas> GblEmpresas { get; set; }
-        public ICollection<GblPersonas> GblPersonas { get; set; }
+        public ICollection<Sucursales> FctSucursales { get; set; }
+        public ICollection<Empresas> GblEmpresas { get; set; }
+        public ICollection<Personas> GblPersonas { get; set; }
     }
 }

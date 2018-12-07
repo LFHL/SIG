@@ -8,16 +8,13 @@ namespace SIG.FCT.Persistencia.EF.Configuraciones
     {
         public void Configure( EntityTypeBuilder<Cliente> builder )
         {
+            builder.Property(e => e.Nombres)
+                .IsRequired()
+                .HasMaxLength(30);
 
-            builder
-                .Property(x => x.Nombres)
-                .HasMaxLength(30)
-                .IsRequired();
-            builder
-                .Property(x => x.Apellidos)
-                .HasMaxLength(30)
-                .IsRequired();
+            builder.Property(e => e.Apellidos)
+                .IsRequired()
+                .HasMaxLength(30);
         }
     }
-
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Fct
 {
-    public partial class FctEmpresas
+    public partial class Empresas
     {
         public decimal Nit { get; set; }
     }

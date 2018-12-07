@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIG.FCT.CORE.Entidades.Inv;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Fct
 {
-    public partial class FctFacturas
+    public partial class Facturas
     {
-        public FctFacturas()
+        public Facturas()
         {
-            FctReimpresiones = new HashSet<FctReimpresiones>();
+            FctReimpresiones = new HashSet<Reimpresiones>();
         }
 
         public int IdVenta { get; set; }
@@ -21,8 +22,8 @@ namespace web.Modelos
         public int IdEstado { get; set; }
         public byte[] CodigoQr { get; set; }
 
-        public InvVentas IdVentaNavigation { get; set; }
-        public FctDosificaciones NroAutorizacionNavigation { get; set; }
-        public ICollection<FctReimpresiones> FctReimpresiones { get; set; }
+        public Ventas IdVentaNavigation { get; set; }
+        public Dosificaciones NroAutorizacionNavigation { get; set; }
+        public ICollection<Reimpresiones> FctReimpresiones { get; set; }
     }
 }

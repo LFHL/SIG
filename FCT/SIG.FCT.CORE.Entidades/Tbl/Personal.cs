@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Tbl
 {
-    public partial class TblPersonal
+    public partial class Personal
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

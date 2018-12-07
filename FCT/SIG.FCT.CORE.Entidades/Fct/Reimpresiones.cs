@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Fct
 {
-    public partial class FctReimpresiones
+    public partial class Reimpresiones
     {
         public int Id { get; set; }
         public int IdFactura { get; set; }
@@ -11,6 +11,6 @@ namespace web.Modelos
         public DateTime? Fecha { get; set; }
         public string Motivo { get; set; }
 
-        public FctFacturas IdFacturaNavigation { get; set; }
+        public Facturas IdFacturaNavigation { get; set; }
     }
 }

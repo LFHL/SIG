@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIG.FCT.CORE.Entidades.Gbl;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Fct
 {
-    public partial class FctSucursales
+    public partial class Sucursales
     {
-        public FctSucursales()
+        public Sucursales()
         {
-            FctAsignacionesSistema = new HashSet<FctAsignacionesSistema>();
+            FctAsignacionesSistema = new HashSet<AsignacionesSistema>();
         }
 
         public int Numero { get; set; }
@@ -17,8 +18,8 @@ namespace web.Modelos
         public string Telefonos { get; set; }
         public string Email { get; set; }
 
-        public GblDirecciones IdDireccionNavigation { get; set; }
-        public GblImagenes IdLogoNavigation { get; set; }
-        public ICollection<FctAsignacionesSistema> FctAsignacionesSistema { get; set; }
+        public Direcciones IdDireccionNavigation { get; set; }
+        public Imagenes IdLogoNavigation { get; set; }
+        public ICollection<AsignacionesSistema> FctAsignacionesSistema { get; set; }
     }
 }

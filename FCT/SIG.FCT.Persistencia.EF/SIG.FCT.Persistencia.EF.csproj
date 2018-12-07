@@ -20,4 +20,10 @@
     <ProjectReference Include="..\SIG.FCT.CORE.Entidades\SIG.FCT.CORE.Entidades.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

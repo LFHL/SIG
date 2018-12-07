@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Fct
 {
-    public partial class FctSistemasFacturacion
+    public partial class SistemasFacturacion
     {
-        public FctSistemasFacturacion()
+        public SistemasFacturacion()
         {
-            FctAsignacionesSistema = new HashSet<FctAsignacionesSistema>();
+            FctAsignacionesSistema = new HashSet<AsignacionesSistema>();
         }
 
         public int Sfc { get; set; }
         public string Nombre { get; set; }
         public string Fabricante { get; set; }
 
-        public ICollection<FctAsignacionesSistema> FctAsignacionesSistema { get; set; }
+        public ICollection<AsignacionesSistema> FctAsignacionesSistema { get; set; }
     }
 }

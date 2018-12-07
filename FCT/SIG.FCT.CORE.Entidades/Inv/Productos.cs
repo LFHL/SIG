@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIG.FCT.CORE.Entidades.Par;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Inv
 {
-    public partial class InvProductos
+    public partial class Productos
     {
-        public InvProductos()
+        public Productos()
         {
-            InvDetalleCompras = new HashSet<InvDetalleCompras>();
-            InvDetalleVentas = new HashSet<InvDetalleVentas>();
-            InvSubProductosIdProductoNavigation = new HashSet<InvSubProductos>();
-            InvSubProductosIdSubProductoNavigation = new HashSet<InvSubProductos>();
+            InvDetalleCompras = new HashSet<DetalleCompras>();
+            InvDetalleVentas = new HashSet<DetalleVentas>();
+            InvSubProductosIdProductoNavigation = new HashSet<SubProductos>();
+            InvSubProductosIdSubProductoNavigation = new HashSet<SubProductos>();
         }
 
         public int Id { get; set; }
@@ -22,10 +23,10 @@ namespace web.Modelos
         public int IdTipoUnidad { get; set; }
         public bool? EsParaVenta { get; set; }
 
-        public ParCategoriasProducto IdCategoriaNavigation { get; set; }
-        public ICollection<InvDetalleCompras> InvDetalleCompras { get; set; }
-        public ICollection<InvDetalleVentas> InvDetalleVentas { get; set; }
-        public ICollection<InvSubProductos> InvSubProductosIdProductoNavigation { get; set; }
-        public ICollection<InvSubProductos> InvSubProductosIdSubProductoNavigation { get; set; }
+        public CategoriasProducto IdCategoriaNavigation { get; set; }
+        public ICollection<DetalleCompras> InvDetalleCompras { get; set; }
+        public ICollection<DetalleVentas> InvDetalleVentas { get; set; }
+        public ICollection<SubProductos> InvSubProductosIdProductoNavigation { get; set; }
+        public ICollection<SubProductos> InvSubProductosIdSubProductoNavigation { get; set; }
     }
 }

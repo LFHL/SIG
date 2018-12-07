@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Fct
 {
-    public partial class FctActividadesEconomicas
+    public partial class ActividadesEconomicas
     {
-        public FctActividadesEconomicas()
+        public ActividadesEconomicas()
         {
-            FctAsignacionesSistema = new HashSet<FctAsignacionesSistema>();
+            AsignacionesSistema = new HashSet<AsignacionesSistema>();
         }
 
         public int Id { get; set; }
@@ -15,6 +15,6 @@ namespace web.Modelos
         public bool? Principal { get; set; }
         public bool? Habilitada { get; set; }
 
-        public ICollection<FctAsignacionesSistema> FctAsignacionesSistema { get; set; }
+        public ICollection<AsignacionesSistema> AsignacionesSistema { get; set; }
     }
 }

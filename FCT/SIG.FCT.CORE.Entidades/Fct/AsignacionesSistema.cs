@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIG.FCT.CORE.Entidades.Par;
 
-namespace web.Modelos
+namespace SIG.FCT.CORE.Entidades.Fct
 {
-    public partial class FctAsignacionesSistema
+    public partial class AsignacionesSistema
     {
-        public FctAsignacionesSistema()
+        public AsignacionesSistema()
         {
-            FctDosificaciones = new HashSet<FctDosificaciones>();
+            FctDosificaciones = new HashSet<Dosificaciones>();
         }
 
         public int Id { get; set; }
@@ -17,10 +18,10 @@ namespace web.Modelos
         public int? IdTipoEmisor { get; set; }
         public bool? Habilitado { get; set; }
 
-        public FctActividadesEconomicas IdActividadEconomicaNavigation { get; set; }
-        public ParGenerales IdTipoEmisorNavigation { get; set; }
-        public FctSucursales NroSucursalNavigation { get; set; }
-        public FctSistemasFacturacion SfcNavigation { get; set; }
-        public ICollection<FctDosificaciones> FctDosificaciones { get; set; }
+        public ActividadesEconomicas IdActividadEconomicaNavigation { get; set; }
+        public Generales IdTipoEmisorNavigation { get; set; }
+        public Sucursales NroSucursalNavigation { get; set; }
+        public SistemasFacturacion SfcNavigation { get; set; }
+        public ICollection<Dosificaciones> FctDosificaciones { get; set; }
     }
 }
