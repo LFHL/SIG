@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
 using SIG.FCT.CORE.Entidades;
 
 namespace SIG.FCT.Persistencia.EF.Modelo
 {
-    public class InicializadorDeContexto
+    public class ContextoFCTInitializer
     {
-        private readonly Dictionary<int, Cliente> Clientes = new Dictionary<int, Cliente>();
-        private readonly Dictionary<int, Orden> Ordenes = new Dictionary<int, Orden>();
-
-        public static void Initialize( ContextoEnMemoria context )
+        public static void Initialize( ContextoFCT context )
         {
-            var initializer = new InicializadorDeContexto();
+            var initializer = new ContextoFCTInitializer();
             initializer.SeedEverything(context);
         }
 
-        public void SeedEverything( ContextoEnMemoria context )
+        public void SeedEverything( ContextoFCT context )
         {
             context.Database.EnsureCreated();
 
@@ -34,7 +28,7 @@ namespace SIG.FCT.Persistencia.EF.Modelo
 
         }
 
-        private void PoblarOrdenes( ContextoEnMemoria context )
+        private void PoblarOrdenes( ContextoFCT context )
         {
             var ordenes = new[]
 {
@@ -48,7 +42,7 @@ namespace SIG.FCT.Persistencia.EF.Modelo
             context.SaveChanges();
         }
 
-        private void PoblarClientes( ContextoEnMemoria context )
+        private void PoblarClientes( ContextoFCT context )
         {
             var clientes = new[]
 {

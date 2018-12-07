@@ -47,8 +47,8 @@ namespace WebApplication3
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "yourdomain.com",
-                    ValidAudience = "yourdomain.com",
+                    ValidIssuer = "MyCompany.Com",
+                    ValidAudience = "Sistema.SIG",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Llave_super_secreta"])),
                     ClockSkew = TimeSpan.Zero
                 });

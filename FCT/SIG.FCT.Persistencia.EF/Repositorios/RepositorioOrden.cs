@@ -6,12 +6,12 @@ namespace SIG.FCT.Persistencia.EF.Repositorios
 {
     class RepositorioOrden : Repositorio<Orden>
     {
-        public ContextoEnMemoria ContextoDelRepositorio
+        public ContextoFCT ContextoDelRepositorio
         {
-            get { return Contexto as ContextoEnMemoria; }
+            get { return Contexto as ContextoFCT; }
         }
 
-        public RepositorioOrden( ContextoEnMemoria contexto ) : base(contexto)
+        public RepositorioOrden( ContextoFCT contexto ) : base(contexto)
         {
         }
     }

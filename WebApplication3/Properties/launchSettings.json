@@ -14,7 +14,7 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
-        "Llave_super_secreta": "ASDLKASNDLAKSDNKJLRJNTLERJKNTELRKJNWLKJRNWELRJWERIWHERJLWENRWKLEJRNWE",
+        "Llave_super_secreta": "ASDFGHJKLqwertyuiop1234567890.",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

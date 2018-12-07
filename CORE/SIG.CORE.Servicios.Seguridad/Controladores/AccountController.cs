@@ -24,7 +24,7 @@ namespace SIG.CORE.Servicios.Seguridad.Controladores
         private readonly SignInManager<Usuario> _signInManager;
         private readonly IConfiguration _configuration;
         
-        protected AccountController(
+        public AccountController(
             UserManager<Usuario> userManager,
             SignInManager<Usuario> signInManager,
             IConfiguration configuration )
@@ -84,7 +84,7 @@ namespace SIG.CORE.Servicios.Seguridad.Controladores
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+                var result = await _signInManager.PasswordSignInAsync(model.Usuario, model.Password, false, false);
                 if (result.Succeeded)
                 {
                     return BuildToken(model);

@@ -14,7 +14,7 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "Mi_Llave_Super_Secreta": "SDKFHNSDUIBDjks-dfb823238!kljsdfhoSDFKSDF.",
+        "Mi_Llave_Super_Secreta": "ASDFGHJKLqwertyuiop1234567890.",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

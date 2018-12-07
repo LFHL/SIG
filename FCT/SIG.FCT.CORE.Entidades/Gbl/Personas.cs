@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace web.Modelos
+{
+    public partial class GblPersonas
+    {
+        public int Id { get; set; }
+        public string NroDocumento { get; set; }
+        public int? IdTipoDocumento { get; set; }
+        public string PrimerNombre { get; set; }
+        public string SegundoNombre { get; set; }
+        public string PrimerApellido { get; set; }
+        public string SegundoApellido { get; set; }
+        public string FechaNacimiento { get; set; }
+        public int? IdDireccion { get; set; }
+        public int? IdTelefonoPrincipal { get; set; }
+        public int? IdCorreoPrincipal { get; set; }
+
+        public GblDirecciones IdDireccionNavigation { get; set; }
+        public GblPropiedadesContacto IdTelefonoPrincipalNavigation { get; set; }
+    }
+}

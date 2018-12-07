@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore;
 using SIG.FCT.CORE.Aplicacion.Contratos.Repositorio;
 using SIG.FCT.CORE.Entidades;
 using SIG.FCT.Persistencia.EF.Modelo;
@@ -9,16 +8,15 @@ namespace SIG.FCT.Persistencia.EF.Base
 {
     public class UnidadDeTrabajo : IUnidadDeTrabajo
     {
-        private readonly ContextoEnMemoria _contexto;
+        private readonly ContextoFCT _contexto;
         public IRepositorioCliente Clientes { get; }
         public IRepositorio<Orden> Ordenes { get; }
 
-        public UnidadDeTrabajo( )
+        public UnidadDeTrabajo(bool EnMemoria = false )
         {
-            var options = new DbContextOptionsBuilder<ContextoEnMemoria>()
-                .UseInMemoryDatabase(databaseName: "FCT_Database")
-                .Options;
-            _contexto = new ContextoEnMemoria(options);
+            var factory = new AppDbContextFactory();
+            _contexto = EnMemoria ? factory.CreateInMemory("FCT_Database") : factory.Create();
+
             Clientes = new RepositorioCliente(_contexto);
             Ordenes = new RepositorioOrden(_contexto);
         }

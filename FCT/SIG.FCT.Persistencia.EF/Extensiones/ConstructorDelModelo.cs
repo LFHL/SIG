@@ -1,8 +1,5 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using Microsoft.EntityFrameworkCore;
-using SIG.FCT.Persistencia.EF.Modelo;
+﻿using Microsoft.EntityFrameworkCore;
+using SIG.FCT.Persistencia.EF.Configuraciones;
 
 namespace SIG.FCT.Persistencia.EF.Extensiones
 {
@@ -11,12 +8,17 @@ namespace SIG.FCT.Persistencia.EF.Extensiones
     {
         public static void ApplyAllConfigurations( this ModelBuilder modelBuilder )
         {
+            modelBuilder.ApplyConfiguration(new ConfiguracionCliente());
+            modelBuilder.ApplyConfiguration(new ConfiguracionOrden());
+
+            // TODO: Descomentar cuando actualice a .NetCore 2.2 y comentar el resto
+            /*
             var applyConfigurationMethodInfo = modelBuilder
                 .GetType()
                 .GetMethods(BindingFlags.Instance | BindingFlags.Public)
                 .First(m => m.Name.Equals("ApplyConfiguration", StringComparison.OrdinalIgnoreCase));
 
-            var ret = typeof(ContextoEnMemoria).Assembly
+            var ret = typeof(ContextoFCT).Assembly
                 .GetTypes()
                 .Select(t => (t, i: t.GetInterfaces().FirstOrDefault(i => i.Name.Equals(typeof(IEntityTypeConfiguration<>).Name, StringComparison.Ordinal))))
                 .Where(it => it.i != null)
@@ -24,6 +26,7 @@ namespace SIG.FCT.Persistencia.EF.Extensiones
                 //.Select(it => (et: it.i.GetGenericArguments()[0], cfgObj: Activator.CreateInstance(it.t)))
                 //.Select(it => applyConfigurationMethodInfo.MakeGenericMethod(it.et).Invoke(modelBuilder, new[] { it.cfgObj }))
                 .ToList();
+            */
         }
     }
 }

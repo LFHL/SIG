@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SIG.FCT.CORE.Aplicacion.Contratos.Servicios;
 using SIG.FCT.CORE.Entidades;
@@ -7,6 +9,7 @@ namespace SIG.FCT.Servicios.REST.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ClientesController : ControllerBase
     {
         private readonly IServicioCliente _Clientes;
