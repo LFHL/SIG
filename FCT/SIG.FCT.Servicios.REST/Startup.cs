@@ -57,7 +57,34 @@ namespace SIG.FCT.Servicios.REST
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "FCT API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info
+                {
+                    Title = "FCT API",
+                    Version = "v1",
+                    Description = "Web API de facturación",
+                    TermsOfService = "None",
+                    Contact = new Contact
+                    {
+                        Name = "Luis Hurtado",
+                        Email = "lhurtado@outlook.com",
+                        Url = "https://twitter.com/lhurtado"
+                    },
+                    License = new License
+                    {
+                        Name = "Use under LICX",
+                        Url = "https://example.com/license"
+                    }
+                });
+
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme {
+                    In = "header",
+                    Description = "Please enter JWT with Bearer into field",
+                    Name = "Authorization",
+                    Type = "apiKey" });
+
+                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>> {
+                { "Bearer", Enumerable.Empty<string>() },
+            });
             });
         }
 
@@ -80,6 +107,7 @@ namespace SIG.FCT.Servicios.REST
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
             });
         }
     }
