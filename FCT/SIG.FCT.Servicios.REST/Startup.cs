@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
+
 using SIG.FCT.CORE.Aplicacion.Contratos.Repositorio;
 using SIG.FCT.CORE.Aplicacion.Contratos.Servicios;
 using SIG.FCT.CORE.Aplicacion.Servicios;
-using Swashbuckle.AspNetCore.Swagger;
+
+using SIG.FCT.Servicios.REST.Swagger;
+
 using RepositorioEnMemoria = SIG.FCT.Persistencia.EF.Base;
 
 namespace SIG.FCT.Servicios.REST
@@ -32,60 +26,14 @@ namespace SIG.FCT.Servicios.REST
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices( IServiceCollection services )
         {
-            services.AddScoped<IUnidadDeTrabajo, RepositorioEnMemoria.UnidadDeTrabajo>();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddScoped<IUnidadDeTrabajo, RepositorioEnMemoria.UnidadDeTrabajo>();
             services.AddScoped<IServicioCliente, ServicioCliente>();
             services.AddScoped<IServicioOrden, ServicioOrden>();
 
-            //services.addin
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-              .AddJwtBearer(options =>
-               options.TokenValidationParameters = new TokenValidationParameters
-               {
-                   ValidateIssuer = true,
-                   ValidateAudience = true,
-                   ValidateLifetime = true,
-                   ValidateIssuerSigningKey = true,
-                   ValidIssuer = "MyCompany.Com",
-                   ValidAudience = "Sistema.SIG",
-                   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Llave_super_secreta"])),
-                   ClockSkew = TimeSpan.Zero
-               });
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info
-                {
-                    Title = "FCT API",
-                    Version = "v1",
-                    Description = "Web API de facturación",
-                    TermsOfService = "None",
-                    Contact = new Contact
-                    {
-                        Name = "Luis Hurtado",
-                        Email = "lhurtado@outlook.com",
-                        Url = "https://twitter.com/lhurtado"
-                    },
-                    License = new License
-                    {
-                        Name = "Use under LICX",
-                        Url = "https://example.com/license"
-                    }
-                });
-
-                c.AddSecurityDefinition("Bearer", new ApiKeyScheme {
-                    In = "header",
-                    Description = "Please enter JWT with Bearer into field",
-                    Name = "Authorization",
-                    Type = "apiKey" });
-
-                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>> {
-                { "Bearer", Enumerable.Empty<string>() },
-            });
-            });
+            services.AddBearerSecurity(Configuration["Llave_super_secreta"]);
+            services.AddSwaggerDocumentation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -103,12 +51,7 @@ namespace SIG.FCT.Servicios.REST
             //app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseMvc();
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                c.RoutePrefix = string.Empty;
-            });
+            app.UseSwaggerDocumentation();
         }
     }
 }
